@@ -23,15 +23,24 @@ export function Professionals() {
   page.appendChild(header);
 
   // Filters row
+  let activeFilter = 'todos';
   const filterRow = document.createElement('div');
   filterRow.style.cssText = 'display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem';
-  ['Todos', 'Disponibles', 'Mejor valorados'].forEach((f, i) => {
+  const filters = [
+    { key: 'todos', label: 'Todos' },
+    { key: 'disponibles', label: 'Disponibles' },
+    { key: 'mejor', label: 'Mejor valorados' },
+  ];
+  filters.forEach(({ key, label }, i) => {
     const btn = document.createElement('button');
     btn.className = `filtro-btn${i === 0 ? ' active' : ''}`;
-    btn.textContent = f;
+    btn.textContent = label;
     btn.addEventListener('click', () => {
       filterRow.querySelectorAll('.filtro-btn').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
+      activeFilter = key;
+      const q = page.querySelector('#search-input').value.trim();
+      loadProfessionals(q);
     });
     filterRow.appendChild(btn);
   });
@@ -51,11 +60,14 @@ export function Professionals() {
         if (loading) return;
         grid.innerHTML = '';
         if (error) { grid.innerHTML = `<p style="color:var(--color-danger)">${error}</p>`; return; }
-        if (data.length === 0) {
+        let results = data;
+        if (activeFilter === 'disponibles') results = results.filter((p) => p.available);
+        if (activeFilter === 'mejor') results = [...results].sort((a, b) => b.rating - a.rating);
+        if (results.length === 0) {
           grid.innerHTML = '<p style="color:var(--color-text-muted)">No se encontraron profesionales.</p>';
           return;
         }
-        data.forEach((pro) => grid.appendChild(CardProfesional(pro)));
+        results.forEach((pro) => grid.appendChild(CardProfesional(pro)));
       }
     );
   }

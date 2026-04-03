@@ -987,12 +987,80 @@ img { max-width: 100%; display: block; }
 .auth-switch a { color: var(--color-primary); font-weight: 600; cursor: pointer; }
 
 /* ===================== Responsive ===================== */
+/* ===================== Footer ===================== */
+.footer {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 3rem 0 1.5rem;
+  margin-top: 3rem;
+}
+.footer__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer__brand-name {
+  font-family: var(--font-logo);
+  font-size: 1.6rem;
+  color: var(--color-primary-mid);
+  margin-bottom: 0.75rem;
+}
+.footer__brand-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,.65);
+  line-height: 1.7;
+  max-width: 280px;
+}
+.footer__col-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.footer__link {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition);
+}
+.footer__link:hover { color: var(--color-primary-mid); }
+.footer__bottom {
+  max-width: 1180px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,.45);
+}
+.footer__social { display: flex; gap: 0.75rem; }
+.footer__social-icon {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem;
+  transition: background var(--transition);
+  cursor: pointer;
+}
+.footer__social-icon:hover { background: var(--color-primary); }
+
+/* ===================== Responsive ===================== */
 @media (max-width: 900px) {
   .grid-3, .grid-4  { grid-template-columns: repeat(2, 1fr); }
   .hero__inner       { grid-template-columns: 1fr; padding: 3rem 0; }
   .hero__image-col   { display: none; }
   .hero__title       { font-size: 2.2rem; }
   .dashboard-layout  { grid-template-columns: 1fr; }
+  .booking-layout    { grid-template-columns: 1fr; }
+  .footer__inner     { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
@@ -1000,4 +1068,5 @@ img { max-width: 100%; display: block; }
   .selector-horas   { grid-template-columns: repeat(3, 1fr); }
   .hero__title      { font-size: 1.8rem; }
   .hero__search-row { max-width: 100%; }
+  .footer__inner    { grid-template-columns: 1fr; }
 }

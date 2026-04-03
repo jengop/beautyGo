@@ -15,7 +15,7 @@ const MOCK_PROFESSIONALS = [
       { id: 's2', name: 'Coloración completa', duration: 120, price: 2500 },
       { id: 's3', name: 'Tratamiento capilar', duration: 60, price: 1200 },
     ],
-    gallery: [null, null, null, null, null, null],
+    gallery: ['color-1', 'color-2', 'color-3', 'style-1', 'style-2', 'style-3'],
     available: true,
   },
   {
@@ -34,7 +34,7 @@ const MOCK_PROFESSIONALS = [
       { id: 's5', name: 'Corte + Afeitado', duration: 50, price: 800 },
       { id: 's6', name: 'Diseño de barba', duration: 25, price: 400 },
     ],
-    gallery: [null, null, null, null],
+    gallery: ['barber-1', 'barber-2', 'barber-3', 'barber-4'],
     available: true,
   },
   {
@@ -53,7 +53,7 @@ const MOCK_PROFESSIONALS = [
       { id: 's8', name: 'Uñas acrílicas', duration: 90, price: 1800 },
       { id: 's9', name: 'Nail Art premium', duration: 120, price: 2200 },
     ],
-    gallery: [null, null, null, null, null],
+    gallery: ['nail-1', 'nail-2', 'nail-3', 'nail-4', 'nail-5'],
     available: true,
   },
   {
@@ -71,7 +71,7 @@ const MOCK_PROFESSIONALS = [
       { id: 's10', name: 'Masaje relajante 60min', duration: 60, price: 1500 },
       { id: 's11', name: 'Masaje deportivo 90min', duration: 90, price: 2200 },
     ],
-    gallery: [null, null, null],
+    gallery: ['spa-1', 'spa-2', 'spa-3'],
     available: false,
   },
 ];
